@@ -32,7 +32,7 @@ const ListingBox = ({props}) => {
 
                 </div>
                 <div className="flex flex-row align-middle mt-1">
-                        <i className="fas fa-map-marker bg-gray mt-1 opacity-75 text-gray-500"></i>
+                        <i className="fas fa-map-marker text-gray-500"></i>
                         <p className="ml-2 text-slate-400">{location}</p>
                 </div>
                 </div>
