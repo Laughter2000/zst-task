@@ -73,7 +73,7 @@ const ListingBox = ({props}) => {
                 </div>
 
             </div>
-            <i className={`fas fa-heart fa-2x justify-self-end absolute right-0 mr-16 mt-12 ${like ? "text-red-600" : "text-gray-500"}`} onClick={(e) => { e.stopPropagation();  setLike(prevValue => !prevValue)}}></i>
+            <i className={`fas fa-heart fa-2x  justify-self-end absolute right-0 mr-16 mt-12 ${like ? "text-red-600" : "text-transparent md:text-gray-500"}`} onClick={(e) => { e.stopPropagation();  setLike(prevValue => !prevValue)}}></i>
         </div>
     )
 
