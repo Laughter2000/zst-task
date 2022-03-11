@@ -20,7 +20,7 @@ const ListingBox = ({props}) => {
     const [like, setLike] = useState(false)
 
     return (
-        <div className={` bg-white rounded-lg p-5 flex my-4 h-full md:h-40 align-middle cursor-pointer min-w-full text-md ${ activeListing && activeListing["id"] === id ? " border-2 border-main shadow-xl" : "border-0"}`} onClick={() => setActiveListing(props)}>
+        <div className={` bg-white rounded-lg p-5 flex my-4 h-full md:h-40 align-middle cursor-pointer min-w-full text-md ${ activeListing && activeListing["id"] === id ? " border-2 border-main shadow-xl" : "border-0"}`} onClick={(e) => { e.stopPropagation(); setActiveListing(props)}}>
             <img src={image} className="h-[120px] w-[120px] rounded-md mr-8" alt="listing"/>
 
             <div className="flex flex-col w">
