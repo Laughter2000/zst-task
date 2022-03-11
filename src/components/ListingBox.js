@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 
 
@@ -16,10 +16,11 @@ const RatingBox = ({rating}) => {
 }
 
 const ListingBox = ({props}) => {
-    const { name, image, location, rating, energy_usage, noise_level, door, guests, access_code, owner_code, cleaner_code} = props; //eslint-disable-line
+    const { id, name, image, location, rating, energy_usage, noise_level, door, guests, access_code, owner_code, cleaner_code, activeListing, setActiveListing} = props; //eslint-disable-line
+    const [like, setLike] = useState(false)
 
     return (
-        <div className="bg-white rounded-lg p-5 flex my-4 h-40 align-middle cursor-pointer min-w-full">
+        <div className={` bg-white rounded-lg p-5 flex my-4 h-full md:h-40 align-middle cursor-pointer min-w-full text-md ${ activeListing && activeListing["id"] === id ? " border-2 border-main shadow-xl" : "border-0"}`} onClick={() => setActiveListing(props)}>
             <img src={image} className="h-[120px] w-[120px] rounded-md mr-8" alt="listing"/>
 
             <div className="flex flex-col w">
@@ -37,7 +38,7 @@ const ListingBox = ({props}) => {
                 </div>
 
 
-                <div className="flex flex-row  align-middle mt-1">
+                <div className="flex flex-col md:flex-row md:flex-nowrap align-middle mt-1">
 
                     <div className="flex flex-row align-middle mr-20">
                     <i className="fas fa-map text-gray-500 mt-4"></i>
@@ -72,6 +73,7 @@ const ListingBox = ({props}) => {
                 </div>
 
             </div>
+            <i className={`fas fa-heart fa-2x justify-self-end absolute right-0 mr-16 mt-12 ${like ? "text-red-600" : "text-gray-500"}`} onClick={(e) => { e.stopPropagation();  setLike(prevValue => !prevValue)}}></i>
         </div>
     )
 

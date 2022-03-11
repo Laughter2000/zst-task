@@ -38,7 +38,7 @@ const pageLinks = [
 
 const NavLink = ({page, name, pageLink, icon}) => {
   return (
-    <li className={`${page === name ? 'text-black' : 'text-[#AAAEB4]'} items-center mb-[28px] flex justify-between rounded-none`}>
+    <li className={`${page === name ? 'text-black' : 'text-[#AAAEB4]'} items-center mb-[15px] flex justify-between rounded-none`}>
     <Link
       className="text-sm capitalize py-3 font-bold block"
       to={`${pageLink}`}
