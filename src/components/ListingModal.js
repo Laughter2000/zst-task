@@ -2,10 +2,9 @@ import React, {useState} from "react";
 import  ContactModal  from "./ContactForm";
 
 
-const ListingModal = ({ activeListing }) => {
+const ListingModal = ({ activeListing, setActiveListing }) => {
   const { id, name, is_active, checkin, checkout, cleaner_code, access_code, owner_code, guests, owner, owner_location, location } = activeListing; //eslint-disable-line
   const [page, setPage] = useState("Codes")
-  const [disableModal, setDisableModal] = useState(false)
   const [contact, setContact] = useState(false)
 
 
@@ -14,8 +13,8 @@ const ListingModal = ({ activeListing }) => {
 
     <>
     {contact && <ContactModal setContact={setContact} />}
-    <div className={`modal-container ${disableModal && "hidden"} fixed m-0 top-0 bottom-0 w-full md:right-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-column md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between z-30 md:pt-8 pl-6  h-full md:w-[400px] rounded-l-lg`}>
-          <div className="modal-close cursor-pointer m-4 fixed justify-end top-0 right-0 md:hidden" onClick={() => setDisableModal(true)}>
+    <div className={`modal-container  fixed m-0 top-0 bottom-0 w-full md:right-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-column md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between z-30 md:pt-8 pl-6  h-full md:w-[400px] rounded-l-lg`}>
+          <div className="modal-close cursor-pointer m-4 fixed justify-end top-0 right-0 md:hidden" onClick={() => setActiveListing(null)}>
             <svg className="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
               <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
             </svg>

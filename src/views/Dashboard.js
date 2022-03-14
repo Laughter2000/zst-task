@@ -82,7 +82,7 @@ const Dashboard = () => {
             </div>
         </div >
 
-            {activeListing && <ListingModal activeListing={activeListing} />}
+            {activeListing && <ListingModal activeListing={activeListing} setActiveListing={setActiveListing}/>}
         </div>
     );
 
