@@ -20,7 +20,7 @@ const ListingBox = ({props}) => {
 
     return (
         <div className={` bg-white rounded-lg p-4 md:p-8 flex justify-between md:flex-row my-4 h-full md:h-full align-middle cursor-pointer min-w-full text-md ${ activeListing && activeListing["id"] === id ? " border-2 border-main shadow-xl" : "border-0"}`} onClick={(e) => { e.stopPropagation(); setActiveListing(props)}}>
-            <div className="flex flex-row">
+            <div className="flex flex-col md:flex-row">
             <img src={image} className="h-[120px] w-[120px] rounded-md mr-8" alt="listing"/>
 
             <div className="flex flex-col w">
