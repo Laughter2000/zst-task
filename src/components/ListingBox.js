@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 
 
-
 const RatingBox = ({rating}) => {
     const values = [1, 2, 3, 4, 5]
     return (
@@ -20,27 +19,27 @@ const ListingBox = ({props}) => {
     const [like, setLike] = useState(false)
 
     return (
-        <div className={` bg-white rounded-lg p-5 flex my-4 h-full md:h-40 align-middle cursor-pointer min-w-full text-md ${ activeListing && activeListing["id"] === id ? " border-2 border-main shadow-xl" : "border-0"}`} onClick={(e) => { e.stopPropagation(); setActiveListing(props)}}>
+        <div className={` bg-white rounded-lg p-5 flex flex-col md:flex-row my-4 h-full md:h-full align-middle cursor-pointer min-w-full text-md ${ activeListing && activeListing["id"] === id ? " border-2 border-main shadow-xl" : "border-0"}`} onClick={(e) => { e.stopPropagation(); setActiveListing(props)}}>
             <img src={image} className="h-[120px] w-[120px] rounded-md mr-8" alt="listing"/>
 
             <div className="flex flex-col w">
 
                 <div className="flex flex-col text-center align-middle mb-4">
-                    <div className="flex flex-row">
-                        <h1 className="mr-4 font-bold text-xl text-center">{name}</h1>
+                    <div className="flex flex-col md:flex-row">
+                        <h1 className="mt-3 md:mt-0 mb-2 text-left md:mr-4 font-bold text-xl md:text-center">{name}</h1>
                         <RatingBox rating={rating}/>
 
                 </div>
-                <div className="flex flex-row align-middle mt-1">
-                        <i className="fas fa-map-marker text-gray-500"></i>
-                        <p className="ml-2 text-slate-400">{location}</p>
+                <div className="flex flex-row align-middle mt-3 md:mt-0">
+                        <i className="fas fa-map-marker text-gray-500 mt-1"></i>
+                        <p className="ml-2 text-slate-400 text-left">{location}</p>
                 </div>
                 </div>
 
 
                 <div className="flex flex-col md:flex-row md:flex-nowrap align-middle mt-1">
 
-                    <div className="flex flex-row align-middle mr-20">
+                    <div className="flex flex-row align-middle mr-20 mb-4">
                     <i className="fas fa-map text-gray-500 mt-4"></i>
                     
                     <div className="flex flex-col ml-3">
@@ -51,7 +50,7 @@ const ListingBox = ({props}) => {
 
 
 
-                    <div className="flex flex-row align-middle mr-20">
+                    <div className="flex flex-row align-middle mr-20 mb-4">
                     <i className="fas fa-bolt text-gray-500 mt-4"></i>
                     
                     <div className="flex flex-col ml-3">
@@ -61,7 +60,7 @@ const ListingBox = ({props}) => {
                     </div>
 
 
-                    <div className="flex flex-row align-middle ">
+                    <div className="flex flex-row align-middle mb-4">
                     <i className="fas fa-volume-up text-gray-500 mt-4"></i>
                     
                     <div className="flex flex-col ml-3">
@@ -73,7 +72,7 @@ const ListingBox = ({props}) => {
                 </div>
 
             </div>
-            <i className={`fas fa-heart fa-2x  justify-self-end absolute right-0 mr-16 mt-12 ${like ? "text-red-600" : "text-transparent md:text-gray-500"}`} onClick={(e) => { e.stopPropagation();  setLike(prevValue => !prevValue)}}></i>
+            <i className={`fas fa-heart fa-xl  justify-self-end absolute right-0 mr-16 mt-12 ${like ? "text-red-600" : "text-gray-500"}`} onClick={(e) => { e.stopPropagation();  setLike(prevValue => !prevValue)}}></i>
         </div>
     )
 

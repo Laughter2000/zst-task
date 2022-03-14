@@ -22,8 +22,13 @@ const Dashboard = () => {
 
 
     useEffect(() => {
+        
         if (searchValue) {
             const filteredData = filteredListing.filter(data => data.name.toLowerCase().includes(searchValue.toLowerCase()))
+            setFilteredListing(filteredData);
+        }
+        else {
+            const filteredData = datas.filter(data => data["is_active"] === page)
             setFilteredListing(filteredData);
         }
     }, [searchValue]) //eslint-disable-line
@@ -41,7 +46,7 @@ const Dashboard = () => {
 
 
     return (
-        <div className="min-h-screen bg-secondary min-w-[534px]"> 
+        <div className="min-h-screen bg-secondary"> 
         <Sidebar />
         {!isAuthenticated && <LoginModal />}
         <div className={`min-w-full h-full md:pl-80 py-8 px-[40px] ${!isAuthenticated && "pointer-events-none"}`} onClick={e => (activeListing && e.currentTarget.classList[0] !== "modal-open") && setActiveListing(null) }>
