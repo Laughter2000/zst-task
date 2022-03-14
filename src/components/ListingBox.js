@@ -19,7 +19,8 @@ const ListingBox = ({props}) => {
     const [like, setLike] = useState(false)
 
     return (
-        <div className={` bg-white rounded-lg p-5 flex flex-col md:flex-row my-4 h-full md:h-full align-middle cursor-pointer min-w-full text-md ${ activeListing && activeListing["id"] === id ? " border-2 border-main shadow-xl" : "border-0"}`} onClick={(e) => { e.stopPropagation(); setActiveListing(props)}}>
+        <div className={` bg-white rounded-lg p-4 md:p-8 flex justify-between md:flex-row my-4 h-full md:h-full align-middle cursor-pointer min-w-full text-md ${ activeListing && activeListing["id"] === id ? " border-2 border-main shadow-xl" : "border-0"}`} onClick={(e) => { e.stopPropagation(); setActiveListing(props)}}>
+            <div className="flex flex-row">
             <img src={image} className="h-[120px] w-[120px] rounded-md mr-8" alt="listing"/>
 
             <div className="flex flex-col w">
@@ -37,7 +38,7 @@ const ListingBox = ({props}) => {
                 </div>
 
 
-                <div className="flex flex-col md:flex-row md:flex-nowrap align-middle mt-1">
+                <div className="flex flex-col md:flex-row md:flex-wrap align-middle mt-1">
 
                     <div className="flex flex-row align-middle mr-20 mb-4">
                     <i className="fas fa-map text-gray-500 mt-4"></i>
@@ -72,7 +73,10 @@ const ListingBox = ({props}) => {
                 </div>
 
             </div>
-            <i className={`fas fa-heart fa-xl  justify-self-end absolute right-0 mr-16 mt-12 ${like ? "text-red-600" : "text-gray-500"}`} onClick={(e) => { e.stopPropagation();  setLike(prevValue => !prevValue)}}></i>
+            </div>
+            <div className="justify-self-end">
+            <i className={`fas fa-heart fa-xl justify-self-end text-right mt-8 ${like ? "text-red-600" : "text-gray-500"}`} onClick={(e) => { e.stopPropagation();  setLike(prevValue => !prevValue)}}></i>
+            </div>
         </div>
     )
 
